@@ -10,10 +10,6 @@ import addRecipeView from './views/addRecipeView.js';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -51,7 +47,6 @@ const controlSearchResults = async function (goToPage) {
     await modal.loadSearchResults(query);
 
     // 3) Render results
-    // resultsView.render(modal.state.search.results);
     resultsView.render(modal.getSearchResultsPage());
 
     // 4) Render initial pagination buttons
@@ -74,7 +69,6 @@ const controlServings = function (newServings) {
   modal.updateServings(newServings);
 
   // Update the recipe view
-  // recipeView.render(modal.state.recipe);
   recipeView.update(modal.state.recipe);
 };
 
@@ -126,10 +120,6 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
-const newFeature = function () {
-  console.log('Welcome to the application');
-};
-
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -142,9 +132,3 @@ const init = function () {
 };
 
 init();
-
-// const clearBookmarks = function () {
-//   localStorage.clear('bookmarks');
-// };
-
-// // clearBookmarks();
